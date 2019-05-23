@@ -5,7 +5,7 @@ exports[`should render NotFoundPage correctly 1`] = `
   404 no findy - 
   <Link
     replace={false}
-    to="/"
+    to="/dashboard"
   >
     go back
   </Link>

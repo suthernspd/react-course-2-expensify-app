@@ -33,33 +33,51 @@ export class ExpenseListFilters extends React.Component {
     };
     render() {
         return (
-            <div>
-                <input type="text"
-                value={this.props.filters.text}
-                onChange={this.onTextChange}/>
-                <label className="container">Case Sensitive
-                    <input type="checkbox"
-                    checked={this.props.filters.textCaseSensitive}
-                    onChange={this.onCheckboxChange} />
-                </label>
-                <select 
-                value={this.props.filters.sortBy}
-                onChange={this.onSortChange} >
-                    <option value="dateNew">Date - New to Old</option>
-                    <option value="dateOld">Date - Old to New</option>
-                    <option value="amountMax">Amount - Max to Min</option>
-                    <option value="amountMin">Amount - Min to Max</option>
-                </select>
-                <DateRangePicker
-                startDate={this.props.filters.startDate}
-                endDate={this.props.filters.endDate}
-                onDatesChange={this.onDatesChange}
-                focusedInput={this.state.calendarFocused}
-                onFocusChange={this.onFocusChange}
-                showClearDates={true}
-                numberOfMonths={1}
-                isOutsideRange={() => false}
-                />
+            <div className="content-container">
+                <div className="input-group">
+                    <div className="input-group__item">
+                        <input type="text"
+                        className="text-input"
+                        placeholder="Search Expenses"
+                        value={this.props.filters.text}
+                        onChange={this.onTextChange}/>
+                    </div>
+                    <div className="input-group__item">
+                        <div className="checkbutton">
+                            <label className="checkbutton__label">Case Sensitive
+                                <input type="checkbox"
+                                className="checkbutton__box"
+                                name="case_sensitive"
+                                id="case_sensitive"
+                                checked={this.props.filters.textCaseSensitive}
+                                onChange={this.onCheckboxChange} />
+                            </label>
+                        </div>
+                    </div>
+                    <div className="input-group__item">
+                        <select
+                        className="select"
+                        value={this.props.filters.sortBy}
+                        onChange={this.onSortChange} >
+                            <option value="dateNew">Date - New to Old</option>
+                            <option value="dateOld">Date - Old to New</option>
+                            <option value="amountMax">Amount - Max to Min</option>
+                            <option value="amountMin">Amount - Min to Max</option>
+                        </select>
+                    </div>
+                    <div className="input-group__item">
+                        <DateRangePicker
+                        startDate={this.props.filters.startDate}
+                        endDate={this.props.filters.endDate}
+                        onDatesChange={this.onDatesChange}
+                        focusedInput={this.state.calendarFocused}
+                        onFocusChange={this.onFocusChange}
+                        showClearDates={true}
+                        numberOfMonths={1}
+                        isOutsideRange={() => false}
+                        />
+                    </div>
+                </div>
             </div>
             );
     }

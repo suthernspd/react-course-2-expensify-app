@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { timestampToDate, formatCurrency } from '../playground/numFormatting';
 
 export const ExpenseListItem = ({ id, description, amount, createdAt }) => (
-    <div>
-        <Link to={`/edit/${id}`}>
-            <h3>{description}</h3>
+        <Link className="list-item" to={`/edit/${id}`}>
+            <div>
+                <h3 className="list-item__title">{description}</h3>
+                <span className="list-item__subtitle">{timestampToDate(createdAt)}</span>
+            </div>
+            <h3 className="list-item__date">{formatCurrency(amount,'$')}</h3>
         </Link>
-        <p>{formatCurrency(amount,'$')} - {timestampToDate(createdAt)}</p>
-    </div>
 );
 
 export default ExpenseListItem;

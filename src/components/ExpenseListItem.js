@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { timestampToDate, formatCurrency } from '../playground/numFormatting';
+import { timestampToDate, formatCurrency } from '../actions/numFormatting';
 
 export const ExpenseListItem = ({ id, description, amount, createdAt }) => (
         <Link className="list-item" to={`/edit/${id}`}>
